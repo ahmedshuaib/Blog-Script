@@ -1,0 +1,8 @@
+a:hover {
+    color: #00cd5a;
+    transition: .5s;
+}
+
+.img-logo-holder {
+    width: 160px;
+}
