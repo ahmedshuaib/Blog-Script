@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('pageTitle', 'Contact Us')
-@section('meta-title', 'Easy Firmware BD Contact Us')
-@section('meta-description', 'Easy Firmware BD Contact With Me')
+@section('meta-title', 'Green Light TFM Contact Us')
+@section('meta-description', 'Green Light TFM Contact With Me')
 @section('content')
     <section class="mt-3">
         <div class="container p-0">

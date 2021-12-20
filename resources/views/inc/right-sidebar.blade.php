@@ -16,7 +16,7 @@
         </div>
         <ul class="list-group list-group-flush mb-3">
             @foreach($categories as $category)
-                <li class="list-group-item"><a class="card-link" href="{{ $category->path() }}">{{ __($category->title) }}</a></li>
+                <li class="list-group-item"><a class="card-link" href="{{ $category->path() }}">{!! __($category->title) !!}</a></li>
             @endforeach
         </ul>
     @endif
