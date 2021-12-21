@@ -10,13 +10,13 @@
 
                     <div class="card-body">
                         <h4 class="card-title text-center"> {{ __($firmware->title) }}  </h4>
-                        @if(count($firmware->tags()->pluck('title')) > 0)
+                        <!-- @if(count($firmware->tags()->pluck('title')) > 0)
                             <div class="card-header bg-white border-0 text-center">
                                 @foreach($firmware->tags()->pluck('title') as $tag)
                                     <span class="badge badge-primary badge-pill">{{ __($tag) }}</span>
                                 @endforeach
                             </div>
-                        @endif
+                        @endif -->
 
                         @if($firmware->thumbnail != 'noimage.png')
                             <img src="{{ asset('/storage/img/'.$firmware->thumbnail) }}" class="img-thumbnail border-0" alt="">

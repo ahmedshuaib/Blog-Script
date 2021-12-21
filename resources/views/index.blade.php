@@ -56,7 +56,7 @@
                                                 </a>
                                             </div>
 
-                                            <div class="card-comments">
+                                            <!-- <div class="card-comments">
                                                 @if(count($post->tags()->pluck('title')) > 0)
                                                     @foreach($post->tags()->pluck('title') as $tag)
                                                         <span class="badge badge-pill badge-primary">
@@ -64,7 +64,7 @@
                                                     </span>
                                                     @endforeach
                                                 @endif
-                                            </div>
+                                            </div> -->
 
                                         </div>
                                     </div>

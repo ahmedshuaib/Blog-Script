@@ -14,13 +14,13 @@
                         @if($post->thumbnail != 'noimage.png')
                             <img src="{{ asset('storage/img/' . $post->thumbnail) }}" class="img-thumbnail my-2 border-0 card-img-top" alt="{{ $post->title }}">
                         @endif
-                        @if(count($post->tags()->pluck('title')) > 0)
+                        <!-- @if(count($post->tags()->pluck('title')) > 0)
                         <div class="card-header bg-gradient-blue">
                             @foreach($post->tags()->pluck('title') as $tag)
                                 <span class="badge badge-primary badge-pill">{{ __($tag) }}</span>
                             @endforeach
                         </div>
-                        @endif
+                        @endif -->
 
                         <div class="card-body">
                             <div class="card-text">
