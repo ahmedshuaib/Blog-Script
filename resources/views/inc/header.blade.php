@@ -73,54 +73,60 @@
                         </li>
 
                         @if(count($categories) > 0)
-                            @foreach($categories as $category)
-                                @if($category->parent_id == null)
-                                    <li class="nav-item {{ count($category->children) > 0 ? 'dropdown' : '' }}">
+                        @foreach($categories as $category)
+                        @if($category->parent_id == null)
+                        <li class="nav-item {{ count($category->children) > 0 ? 'dropdown' : '' }}">
 
 
-                                        @if(count($category->children))
-                                            <a class="nav-link {{ request()->is('firmware') ? 'active' : '' }} dropdown-toggle"
-                                                href="#" data-toggle="dropdown" id="dropmenu{{ Str::slug($category->title) }}" aria-haspopup="true" aria-expanded="false">
+                            @if(count($category->children))
+                            <a class="nav-link {{ request()->is('firmware') ? 'active' : '' }} dropdown-toggle" href="#" data-toggle="dropdown" id="dropmenu{{ Str::slug($category->title) }}" aria-haspopup="true" aria-expanded="false">
 
-                                                {!! __($category->title) !!}
-                                            </a>
-                                        @else
-                                            <a class="nav-link {{ request()->is('firmware') ? 'active' : '' }}" href="{{ $category->path() }}">
+                                {!! $category->icon !!}
+                                {{ __($category->title) }}
+                            </a>
+                            @else
+                            <a class="nav-link {{ request()->is('firmware') ? 'active' : '' }}" href="{{ $category->path() }}">
 
-                                                {!! __($category->title) !!}
+                                {!! $category->icon !!}
+                                {{ __($category->title) }}
+                            </a>
+                            @endif
 
-                                            </a>
-                                        @endif
+                            @if(count($category->children))
+                            <ul class="dropdown-menu" aria-labelledby="dropmenu{{ Str::slug($category->title) }}">
 
-                                        @if(count($category->children))
-                                            <ul class="dropdown-menu" aria-labelledby="dropmenu{{ Str::slug($category->title) }}">
+                                @foreach($category->children as $ch)
+                                <li class="{{ count($ch->children) ? 'dropdown-submenu' : '' }}">
 
-                                                @foreach($category->children as $ch)
-                                                    <li class="{{ count($ch->children) ? 'dropdown-submenu' : '' }}">
+                                    @if(count($ch->children))
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        {!! $category->icon !!}
+                                        {{ __($category->title) }}
+                                    </a>
+                                    @include('inc.child-menu', ['children' => $ch->children])
+                                    @else
+                                    <a class="dropdown-item" href="">
+                                        {!! $category->icon !!}
+                                        {{ __($category->title) }}
+                                    </a>
+                                    @endif
+                                </li>
+                                @endforeach
+                            </ul>
+                            @endif
 
-                                                        @if(count($ch->children))
-                                                            <a class="dropdown-item dropdown-toggle" href="#">{!! __($ch->title) !!}</a>
-                                                            @include('inc.child-menu', ['children' => $ch->children])
-                                                        @else
-                                                            <a class="dropdown-item" href="">{!! __($ch->title) !!}</a>
-                                                        @endif
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-
-                                    </li>
-                                @endif
-                            @endforeach
+                        </li>
+                        @endif
+                        @endforeach
                         @endif
 
 
                         @if(count($pages) > 0)
-                            @foreach($pages as $page)
-                                <li class="nav-item">
-                                    <a class="nav-link {{ request()->is('page/*') ? 'active' : '' }}" href="{{ $page->path() }}">{!! __($page->title) !!} </a>
-                                </li>
-                            @endforeach
+                        @foreach($pages as $page)
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('page/*') ? 'active' : '' }}" href="{{ $page->path() }}">{!! __($page->title) !!} </a>
+                        </li>
+                        @endforeach
                         @endif
 
                         <li class="nav-item">

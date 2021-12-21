@@ -93,14 +93,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="category_">Select Category</label>
-                            @if(count($categories))
-                                <select name="category" class="form-control" id="category-list">
-                                    <option>Select Category</option>
-                                    @foreach($categories as $category)
-                                        <option value="{{ __($category->id) }}">{{ __($category->title) }}</option>
-                                    @endforeach
-                                </select>
-                            @endif
+                            @include('dashboard.inc.select.category-component')
                         </div>
                     </div>
                 </div>
@@ -120,17 +113,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Tags</label>
-                            <div class="select2-purple">
-                                @if(count($tags) > 0)
-                                    <select class="select2" name="tags[]" multiple="multiple" data-placeholder="Select Tags"
-                                            data-dropdown-css-class="select2-purple" style="width: 100%;">
-                                        @foreach($tags as $tag)
-                                            <option value="{{ __($tag->id) }}">{{ __($tag->title) }}</option>
-                                        @endforeach
-
-                                    </select>
-                                @endif
-                            </div>
+                            @include('dashboard.inc.select.tag-component')
                         </div>
                     </div>
                 </div>
@@ -148,12 +131,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input type="file" name="thumbnail" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>
+                        @include('dashboard.inc.file.image-upload')
                     </div>
                 </div>
 
@@ -162,13 +140,4 @@
     </form>
 @endsection
 
-@section('script')
-    <script>
-        $(function() {
-            $('.select2').select2()
-            $('.textarea').summernote( {
-                height: 500
-            })
-        });
-    </script>
-@endsection
+@include('dashboard.inc.select.select-js')

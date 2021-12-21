@@ -29,9 +29,11 @@ class CategoryController extends Controller
     {
         $this->validate($request, [         //after unique put table name
            'title'  => 'required | unique:categories',
+           'description' => 'required'
         ]);
 
         $cate = new Category;
+        $cate->icon = $request->icon;
         $cate->title        = $request->input('title');
         $cate->description  = $request->input('description');
         if((int)$request->input('parent_id') != null) {$cate->parent_id    = $request->input('parent_id');}
@@ -56,9 +58,11 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|min:3',
+            'description' => 'required'
         ]);
 
         $category = Category::findOrFail($id);
+        $category->icon = $request->icon;
         $category->title = $request->title;
         $category->description = $request->description;
         $category->parent_id= (integer)$request->parent_id;

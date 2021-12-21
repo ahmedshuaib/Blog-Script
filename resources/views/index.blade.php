@@ -49,11 +49,13 @@
                                             <img class="img-fluid" src="{{ $post->thumbnail != 'noimage.png' ? asset('/storage/img/'.$post->thumbnail) : asset('/storage/img/'.$default->default_thumbnail) }}" alt="{{ $post->title }}">
                                         </div>
                                         <div class="col-md-9 col-sm-12">
+
                                             <div class="card-title bg-white border-bottom">
                                                 <a class="card-link text-dark font-weight-bold" href="{{ $post->path() }}">
                                                     {{ __($post->title) }}
                                                 </a>
                                             </div>
+
                                             <div class="card-comments">
                                                 @if(count($post->tags()->pluck('title')) > 0)
                                                     @foreach($post->tags()->pluck('title') as $tag)

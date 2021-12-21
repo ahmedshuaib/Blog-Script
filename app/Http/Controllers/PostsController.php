@@ -138,9 +138,9 @@ class PostsController extends Controller
 
         $post->title        = $request->input('title');
         $post->body         = $request->input('body');
-        if($request->has('thumbnail')) {
-            $post->thumbnail    = $post_thumbnail;
-        }
+
+        $post->thumbnail    = $post_thumbnail;
+
         $post->category_id  = (integer)$request->input('category');
         $post->save();
 

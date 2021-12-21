@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ config('app.name', 'Easy Firmware BD') }}</title>
+    <title>{{ config('app.name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href={{ asset("plugins/fontawesome-free/css/all.min.css") }}>
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -17,7 +17,9 @@
 <div class="login-box">
     <div class="login-logo">
         <a href="{{ route('home') }}">
-            <h2 class="text-success mt-5 border-5px-radius"><b><i>Easy</i> <span class="text-dark">Firmware</span> <span class="text-red">BD</span></b></h2>
+            <h2 class="text-success mt-5 border-5px-radius">
+                <b><span class="text-dark">{{ config('app.name') }}</span></b>
+            </h2>
         </a>
     </div>
     @yield('content')

@@ -6,3 +6,13 @@ a:hover {
 .img-logo-holder {
     width: 160px;
 }
+
+.select2-container .select2-selection--single
+{
+    height: 40px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 8px !important;
+    right: 8px !important;
+}

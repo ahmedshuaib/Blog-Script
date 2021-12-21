@@ -124,12 +124,13 @@ class FirmwareController extends Controller
             $cover_image = $request->file('thumbnail')->storeAs('public/img', $post_thumbnail);
         }
 
+
         $post = Firmware::findorfail($id);
         $post->title        = $request->input('title');
         $post->body         = $request->input('body');
-        if($request->has('thumbnail')) {
-            $post->thumbnail    = $post_thumbnail;
-        }
+
+        $post->thumbnail    = $post_thumbnail;
+
         $post->category_id  = (integer)$request->input('category');
         $post->download_link = $request->input('download_link');
         $post->description  = $request->input('description');

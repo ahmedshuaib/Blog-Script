@@ -20,6 +20,11 @@
                         </div>
                     </div>
                     <div class="card-body">
+
+                        <div class="form-group">
+                            <input type="text" name="icon" class="form-control" placeholder="Enter you icon code" id="icon">
+                        </div>
+
                         <div class="form-group">
                             <input type="text" placeholder="Add Category Title" class="form-control @error('title') is-invalid @enderror" name="title" id="title">
                         </div>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }} - @yield('pageTitle')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href={{ asset("plugins/fontawesome-free/css/all.min.css") }}>
@@ -57,6 +58,8 @@
 <script src={{ asset("dist/js/adminlte.js") }}></script>
 <script src={{ asset("plugins/datatables/jquery.dataTables.js") }}></script>
 <script src={{ asset("plugins/datatables-bs4/js/dataTables.bootstrap4.js") }}></script>
+
+<script src={{ asset('js/blog-functions.js') }}></script>
 
 <script>
     const url = window.location;
